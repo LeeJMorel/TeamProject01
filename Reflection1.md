@@ -22,3 +22,7 @@ processes for group collaboration. The final code was posted to the Team Project
 
 //example:
 I was the team lead for our project, and quickly set to delegating tasks. We were done quickly, and I was happy with the progress. All the team members really helped to contribute, and communication went well. I had challenges finding things for our new group member to do, as she had just started. I wasn’t sure how far along she was in the course work, so I had her follow along with me as best I could while managing the project. Everyone did a great job of speaking up and adding their strengths to the group. Most importantly, I feel we are now better prepared for a larger and more complex project together, like we will see in the future with the course work. I heavily insisted on using Github for all group project related concerns, in part because I feel it’s important to understand the platform and to make contributions. We are all very new to the experience, and learning how to make contributions to Github effectively.
+
+**Andy Zhong**
+
+**Harold Pham**
