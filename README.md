@@ -1,6 +1,6 @@
 # Team 3, SPRING 2020, CS211
 
-###Project01
+### Project01
 In your textbook, Building Java Programs, 5th Edition, on page 720 of Chapter 10, please do Programming Project #3.
 
 The format of the data input file for this project will be two lists: a list of person names, one per line of the file, which is followed by a list of these person names and their family member names, also one entry per line. This second list will be in the order person, mother, then father. The list of original person names will be terminated in the file by a line containing the string, "END". After that list will come the person names, followed by those of the family member names, grouped as above and also terminated with "END". There is a test file, tudor.datPreview the document, that you should use for your completion testing, a link to which you can find in this module. You might also wish to make another, perhaps shorter file, e.g., of your own family for a few (two or three, say) generations, for your development testing purposes. As a source of helpful visuals, there is also a Web site you may wish visit at https://www.britroyals.com/index.asp (Links to an external site.). Another visual you may find helpful is in genealogy_chart-Tudors-Stuarts.pdf.
