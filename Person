@@ -1,1 +1,40 @@
-code here
+import java.util.ArrayList;
+
+public class Person 
+{
+    //FIELDS
+    ArrayList<Person> offspring;
+    private String name;
+    private Person father;
+    private Person mother;
+
+    //Default Constructor
+    public Person(String person)
+    {
+        name = person;
+        offspring = new ArrayList<Person>();
+
+    }
+
+    public void addFather(Person f)
+    {
+
+    }
+    public Person getMother()
+    {
+        return mother;
+    }
+
+    public Person getFather()
+    {
+        return father;
+    }
+
+    public ArrayList<Person> getChildren()
+    {
+        return offspring;
+    }
+
+
+
+}
