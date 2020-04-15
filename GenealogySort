@@ -10,7 +10,7 @@ public class GenealogySort{
    }
    
    //Prompts the user
-   public static void Person(Scanner console) throws FileNotFoundException {
+   public static void searchPrompt(Scanner console) throws FileNotFoundException {
          System.out.println("Person's name? (quit to exit): "); 
          String name = console.next().toLowerCase(); 
          while (!name.equals("quit")) {
@@ -27,6 +27,7 @@ public class GenealogySort{
     }
     
     public void sort (name) {
+      Person i = new Person (name)
       System.out.println("Maternal Line:");
          find mother
       System.out.println("Paternal Line:");
@@ -34,3 +35,21 @@ public class GenealogySort{
       System.out.println("Children:");
          find children
     }
+
+   public ArrayList<Person> readFile (Scanner console)
+      ArrayList<Person> names = new ArrayList<Person>();
+      String persons;
+
+      while (console.hasNextLine()) {
+         persons = console.nextLine();
+         if (persons.toLowerCase().equals("end")) {
+            break;
+         } else if (persons.length() < 1) {
+            continue; 
+         }
+         Person j = new Person(persons);
+         
+         people.add(j);
+      }
+      
+      
