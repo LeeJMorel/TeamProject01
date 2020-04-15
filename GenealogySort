@@ -1,1 +1,28 @@
-code goes here
+import java.util.*;
+import java.io.*;
+
+public class GenealogySort{
+   public static void main(String[] args) throws FileNotFoundException{
+      Scanner console = new Scanner(System.in); 
+      boolean exit = false; //declared false until user exits the program  
+      Person(console);
+   }
+   
+   //Prompts the user
+   public static void Person(Scanner console) throws FileNotFoundException {
+         System.out.println("Person's name? (quit to exit): "); 
+         String name = console.next().toLowerCase(); 
+         while (!name.equals("quit")) {
+            name = name.substring(0,1).toUpperCase() + name.substring(1,name.length());
+            System.out.print("Please enter the desired year (between 1880-2018):  ");
+            int year = console.nextInt();
+            if (name exists){
+               run
+            } else {
+               System.out.println("You entered an invalid name. Try again!");
+            }
+            System.out.println("Person's name? (quit to exit): ");
+            name = console.next().toLowerCase();
+         }
+         System.out.println("Thank you for using our program!");
+      }
