@@ -14,8 +14,6 @@ public class GenealogySort{
          String name = console.next().toLowerCase(); 
          while (!name.equals("quit")) {
             name = name.substring(0,1).toUpperCase() + name.substring(1,name.length());
-            System.out.print("Please enter the desired year (between 1880-2018):  ");
-            int year = console.nextInt();
             if (name exists){
                run
             } else {
