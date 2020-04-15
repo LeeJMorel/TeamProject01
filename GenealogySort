@@ -16,12 +16,21 @@ public class GenealogySort{
          while (!name.equals("quit")) {
             name = name.substring(0,1).toUpperCase() + name.substring(1,name.length());
             if (name exists){
-               run
+               sort(name);
             } else {
-               System.out.println("You entered an invalid name. Try again!");
+               System.out.println("Name not found. Try again!");
             }
             System.out.println("Person's name? (quit to exit): ");
             name = console.next().toLowerCase();
          }
          System.out.println("Thank you for using our program!");
-      }
+    }
+    
+    public void sort (name) {
+      System.out.println("Maternal Line:");
+         find mother
+      System.out.println("Paternal Line:");
+         find father
+      System.out.println("Children:");
+         find children
+    }
