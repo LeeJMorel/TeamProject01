@@ -1,21 +1,24 @@
-import java.util.*;
-import java.io.*;
+package ch10;
+import java.util.;
+import java.io.;
 
 public class GenealogySort{
+
    public static void main(String[] args) throws FileNotFoundException{
       File names = new File("tudor.dat");
       Scanner console = new Scanner(System.in); 
-      boolean exit = false; //declared false until user exits the program  
-      Person(console);
+      boolean exit = false; //declared false until user exits the program
+      ArrayList<Person> family = readFile(console);
+      searchPrompt(console);
    }
-   
+
    //Prompts the user
    public static void searchPrompt(Scanner console) throws FileNotFoundException {
          System.out.println("Person's name? (quit to exit): "); 
          String name = console.next().toLowerCase(); 
          while (!name.equals("quit")) {
             name = name.substring(0,1).toUpperCase() + name.substring(1,name.length());
-            if (ScannerArraylist.contains(name)){
+            if (Scanner.contains(name)){
                sort(name);
             } else {
                System.out.println("Name not found. Try again!");
@@ -25,9 +28,8 @@ public class GenealogySort{
          }
          System.out.println("Thank you for using our program!");
     }
-    
-    public void sort (name) {
-      Person i = new Person (name)
+
+    public void sort (Person name) {
       System.out.println("Maternal Line:");
          name.getMother();
       System.out.println("Paternal Line:");
@@ -37,6 +39,7 @@ public class GenealogySort{
     }
 
    public ArrayList<Person> readFile (Scanner console)
+   {
       ArrayList<Person> names = new ArrayList<Person>();
       String persons;
 
@@ -48,8 +51,8 @@ public class GenealogySort{
             continue; 
          }
          Person j = new Person(persons);
-         
-         people.add(j);
+
+         names.add(j);
       }
-      
-      
+   }
+}
