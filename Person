@@ -68,6 +68,10 @@ public class Person
 		return children;
 	}
 	
-	
+	//returns name
+	public Person getName()
+	{
+		return name;
+	}
 
 }
