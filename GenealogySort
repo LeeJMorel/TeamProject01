@@ -29,11 +29,11 @@ public class GenealogySort{
     public void sort (name) {
       Person i = new Person (name)
       System.out.println("Maternal Line:");
-         find mother
+         name.getMother();
       System.out.println("Paternal Line:");
-         find father
+         name.getFather();
       System.out.println("Children:");
-         find children
+         name.getChildren();
     }
 
    public ArrayList<Person> readFile (Scanner console)
