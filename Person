@@ -2,39 +2,72 @@ import java.util.ArrayList;
 
 public class Person 
 {
-    //FIELDS
-    ArrayList<Person> offspring;
-    private String name;
-    private Person father;
-    private Person mother;
+//FIELDS
+	
+	ArrayList<Person> children;
+	private String name;
+	private Person father;
+	private Person mother;
+	
+//CONSTRUCTORS
+	
+	//Constructor one that instantiates name and creates offspring ArrayList
+	public Person(String name)
+	{
+		this.name = name;
+		children = new ArrayList<Person>();
+		
+	}
+	
+	//Contructor two that instantiates name, mother, father, and children
+	public Person(String name, Person mother, Person father, ArrayList<Person> children)
+	{
+		this.name = name;
+		this.mother = mother;
+		this.father = father;
+		this.children = children;
+	}
+	
+//MUTATOR METHODS
+	
+	//Adds mother field
+	public void addMother(Person m)
+	{
+		mother = m;
+	}
 
-    //Default Constructor
-    public Person(String person)
-    {
-        name = person;
-        offspring = new ArrayList<Person>();
-
-    }
-
-    public void addFather(Person f)
-    {
-
-    }
-    public Person getMother()
-    {
-        return mother;
-    }
-
-    public Person getFather()
-    {
-        return father;
-    }
-
-    public ArrayList<Person> getChildren()
-    {
-        return offspring;
-    }
-
-
+	//Adds father field
+	public void addFather(Person f)
+	{
+		father = f;
+	}
+	
+	//Adds children
+	public void addChildren(Person kid)
+	{
+		children.add(kid);
+	}
+	
+//ACCESSOR METHODS
+	
+	//Returns mother
+	public Person getMother()
+	{
+		return mother;
+	}
+	
+	//Returns father
+	public Person getFather()
+	{
+		return father;
+	}
+	
+	//Returns children
+	public ArrayList<Person> getChildren()
+	{
+		return children;
+	}
+	
+	
 
 }
