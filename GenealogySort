@@ -40,20 +40,20 @@ public class GenealogySort{
 
    public static ArrayList<Person> readFile (Scanner console)//this should read the find, and sort the data
    {
-      ArrayList<Person> names = new ArrayList<Person>();
-      String names;
+      ArrayList<Person> family = new ArrayList<Person>();
+      String name;
 
       while (console.hasNextLine()) {
-         persons = console.nextLine();
-         if (persons.toLowerCase().equals("end")) {
+         name = console.nextLine();
+         if (name.toLowerCase().equals("end")) {
             break;
-         } else if (persons.length() < 1) {
-            continue; 
-         }
-         Person j = new Person(persons);
+         } 
+         
+         Person j = new Person(name);
 
-         names.add(j);
+         family.add(j);
       }
+      
    }
    
    // search function to detemine if name exists in arraylist family. Returns -1 if not found
