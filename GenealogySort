@@ -6,20 +6,40 @@ public class GenealogySort{
    public static void main(String[] args) throws FileNotFoundException{
       File names = new File("tudor.dat"); //declares file to search
       Scanner console = new Scanner(System.in); //scans file
-      boolean exit = false; //declared false until user exits the program
       ArrayList<Person> family = readFile(console); //constructs the array list from the file
       searchPrompt(family, console); //runs the prompt passing the arraylist
    }
+   
+      public static ArrayList<Person> readFile (Scanner console)//this should read the file, and input data into an array list
+   {
+      ArrayList<Person> family = new ArrayList<Person>(); //an arraylist that stores all the files information for lineage
+      
+      
+      //while files has a line, read it and add to array, break if "end"
+      String name;
+      while (console.hasNextLine()) {
+         name = console.nextLine().toLowerCase();//makes all input lowercase
+         if (name.equals("end")) {
+            break;
+         } 
+         
+         Person familyLine = new Person(name);
 
-   public static void searchPrompt(ArrayList<Person> family, Scanner console) throws FileNotFoundException {
+         family.add(familyLine);
+      }
+      
+      return family;
+   }
+
+   public static void searchPrompt(ArrayList<Person> family, Scanner console) throws FileNotFoundException {//accept the new arraylist, and a console to recieve user input
          System.out.println("Person's name? (quit to exit): "); //Prompts the user for name
-         String name = console.next().toLowerCase(); //declares name
+         String name = console.next().toLowerCase(); //declares name, makes lower case for file search
          int nameIndex = find(family, name); //search the file for the name location
         
          while (!name.equals("quit")) { //if name is not "quit" run method
 
             if (nameIndex > 0){ //name was found
-               sort(nameIndex); //execute sort, passing String name declared above
+               sort(family, nameIndex); //execute sort, passing String name declared above
             } else {
                System.out.println("Name not found. Try again!"); //else loop
             }
@@ -29,35 +49,35 @@ public class GenealogySort{
          System.out.println("Thank you for using our program!"); //exit
     }
 
-    public void sort (int nameIndex) { //recieves name from searchPrompt
-      System.out.println("Maternal Line:");
-         name.getMother();
-      System.out.println("Paternal Line:");
-         name.getFather();
-      System.out.println("Children:");
-         name.getChildren();
-    }
-
-   public static ArrayList<Person> readFile (Scanner console)//this should read the find, and sort the data
-   {
-      ArrayList<Person> family = new ArrayList<Person>(); //an arraylist that stores all the files information for lineage
-      
-      
-      //while files has a line, read it and add to array, break if "end"
-      String name;
-      while (console.hasNextLine()) {
-         name = console.nextLine().toLowerCase();
-         if (name.equals("end")) {
-            break;
-         } 
+    public static void sort (ArrayList<Person> family, int nameIndex) { //recieves name from searchPrompt
+         Person found = family.get(nameIndex);
+         System.out.println("Maternal Line:");
+         System.out.println("\t" + found.getName());
+         int i = 1;
+            
+               for (int j=0; j<=i; j++) {
+                  System.out.print("\t");
+               
+               System.out.println(found.getMother());
+               found = found.getMother();
+               i++;
+            }
          
-         Person j = new Person(name);
-
-         family.add(j);
-      }
-      
-      
+         // Reset our queryPerson (and our indentation loop counter)
+         found = family.get(nameIndex);
+         System.out.println("Paternal Line:");
+         System.out.println("\t" + found.getName());
+         i = 1;
+           
+               for (int j=0; j<=i; j++) {
+                  System.out.print("\t");
+               
+               System.out.println(found.getFather());
+               found = found.getFather();
+               i++;
+            }
    }
+
    
    // search function to detemine if name exists in arraylist family. Returns -1 if not found
    public static int find(ArrayList<Person> family, String name) {
