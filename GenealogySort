@@ -5,9 +5,9 @@ public class GenealogySort{
 
    public static void main(String[] args) throws FileNotFoundException{
       File names = new File("tudor.dat"); //declares file to search
-      Scanner console = new Scanner(System.in); //scans file
+      Scanner console = new Scanner(names); //scans file
       ArrayList<Person> family = readFile(console); //constructs the array list from the file
-      searchPrompt(family, console); //runs the prompt passing the arraylist
+      searchPrompt(family); //runs the prompt passing the arraylist
    }
    
       public static ArrayList<Person> readFile (Scanner console)//this should read the file, and input data into an array list
@@ -31,7 +31,8 @@ public class GenealogySort{
       return family;
    }
 
-   public static void searchPrompt(ArrayList<Person> family, Scanner console) throws FileNotFoundException {//accept the new arraylist, and a console to recieve user input
+   public static void searchPrompt(ArrayList<Person> family) throws FileNotFoundException {//accept the new arraylist
+         Scanner console = new Scanner(System.in); //scans user input
          System.out.println("Person's name? (quit to exit): "); //Prompts the user for name
          String name = console.next().toLowerCase(); //declares name, makes lower case for file search
          int nameIndex = find(family, name); //search the file for the name location
