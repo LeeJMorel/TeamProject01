@@ -8,18 +8,18 @@ public class GenealogySort{
       Scanner console = new Scanner(System.in); //scans file
       boolean exit = false; //declared false until user exits the program
       ArrayList<Person> family = readFile(console); //constructs the array list from the file
-      searchPrompt(family); //runs the prompt passing the arraylist
+      searchPrompt(family, console); //runs the prompt passing the arraylist
    }
 
-   public static void searchPrompt(ArrayList<Person> family, Scanner Console) throws FileNotFoundException {
+   public static void searchPrompt(ArrayList<Person> family, Scanner console) throws FileNotFoundException {
          System.out.println("Person's name? (quit to exit): "); //Prompts the user for name
          String name = console.next().toLowerCase(); //declares name
-         int nameIndex = find(family, name) //search the file for the name location
+         int nameIndex = find(family, name); //search the file for the name location
         
          while (!name.equals("quit")) { //if name is not "quit" run method
 
             if (nameIndex > 0){ //name was found
-               sort(name); //execute sort, passing String name declared above
+               sort(nameIndex); //execute sort, passing String name declared above
             } else {
                System.out.println("Name not found. Try again!"); //else loop
             }
@@ -29,7 +29,7 @@ public class GenealogySort{
          System.out.println("Thank you for using our program!"); //exit
     }
 
-    public void sort (Person name) { //recieves name from searchPrompt
+    public void sort (int nameIndex) { //recieves name from searchPrompt
       System.out.println("Maternal Line:");
          name.getMother();
       System.out.println("Paternal Line:");
@@ -40,12 +40,14 @@ public class GenealogySort{
 
    public static ArrayList<Person> readFile (Scanner console)//this should read the find, and sort the data
    {
-      ArrayList<Person> family = new ArrayList<Person>();
+      ArrayList<Person> family = new ArrayList<Person>(); //an arraylist that stores all the files information for lineage
+      
+      
+      //while files has a line, read it and add to array, break if "end"
       String name;
-
       while (console.hasNextLine()) {
-         name = console.nextLine();
-         if (name.toLowerCase().equals("end")) {
+         name = console.nextLine().toLowerCase();
+         if (name.equals("end")) {
             break;
          } 
          
@@ -53,6 +55,7 @@ public class GenealogySort{
 
          family.add(j);
       }
+      
       
    }
    
