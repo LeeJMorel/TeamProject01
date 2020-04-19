@@ -34,16 +34,18 @@ public class Person
 	public void addMother(Person m)
 	{
 		mother = m;
+      mother.addChild(this);
 	}
 
 	//Adds father field
 	public void addFather(Person f)
 	{
 		father = f;
+      father.addChild(this);
 	}
 	
 	//Adds children
-	public void addChildren(Person kid)
+	public void addChild(Person kid)
 	{
 		children.add(kid);
 	}
@@ -68,10 +70,11 @@ public class Person
 		return children;
 	}
 	
-	//returns name
-	public Person getName()
-	{
-		return name;
-	}
+   //returns the name input
+   public String getName() {
+      return name;
+   }
+   
+   
 
 }
