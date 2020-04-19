@@ -2,67 +2,80 @@ import java.util.*;
 import java.io.*;
 
 public class GenealogySort{
-
-   public static void main(String[] args) throws FileNotFoundException{
+	
+   private static ArrayList<Person> family = new ArrayList<>();
+	
+   public static void main(String[] args) throws FileNotFoundException
+   {
       File names = new File("tudor.dat"); //declares file to search
       Scanner console = new Scanner(names); //scans file
-      ArrayList<Person> family = readFile(console); //constructs the array list from the file
-      searchPrompt(family); //runs the prompt passing the arraylist
+      readFile(console); //constructs the array list from the file
+      searchPrompt(); //runs the prompt passing the arraylist
+      
    }
    
-      public static ArrayList<Person> readFile (Scanner console)//this should read the file, and input data into an array list
+   
+ //Works
+   public static void searchPrompt() throws FileNotFoundException //Searches for person name inside arraylist family
    {
-      ArrayList<Person> family = new ArrayList<Person>(); //an arraylist that stores all the files information for lineage
-      
-      
-      //while files has a line, read it and add to array, break if "end"
-      String name;
-      while (console.hasNextLine()) {
-         name = console.nextLine().toLowerCase();//makes all input lowercase
-         if (name.equals("end")) {
-            break;
-         } 
-         
-         Person familyLine = new Person(name);
-
-         family.add(familyLine);
-      }
-      
-      return family;
-   }
-
-   public static void searchPrompt(ArrayList<Person> family) throws FileNotFoundException {//accept the new arraylist
+	   
          Scanner console = new Scanner(System.in); //scans user input
          System.out.println("Person's name? (quit to exit): "); //Prompts the user for name
-         String name = console.next().toLowerCase(); //declares name, makes lower case for file search
-         int nameIndex = find(family, name); //search the file for the name location
+         String name = console.nextLine(); //declares name, makes lower case for file search
+         int nameIndex = find(name); //search the file for the name location
         
-         while (!name.equals("quit")) { //if name is not "quit" run method
+         while (!name.equals("quit")) //if name is not "quit" run method
+         { 
 
-            if (nameIndex > 0){ //name was found
-               sort(family, nameIndex); //execute sort, passing String name declared above
-            } else {
+            if (nameIndex >= 0) //name was found
+            { 
+               sort(nameIndex); //execute sort, passing String name declared above
+            } 
+            else 
+            {
                System.out.println("Name not found. Try again!"); //else loop
             }
             System.out.println("Person's name? (quit to exit): "); //fencepost
-            name = console.next().toLowerCase();
+            name = console.nextLine();
          }
          System.out.println("Thank you for using our program!"); //exit
-    }
+         
+   }
+   
+   
+//Works
+   public static void readFile (Scanner console)//this should read the file, and input data into an array list
+   {
+	   //while files has a line, read it and add to array.
+	   String name;
+	   while (console.hasNextLine()) {
+	      name = console.nextLine();
+	         
+	      Person familyLine = new Person(name);
+	
+	      family.add(familyLine);
+	   }
+	    
+	}
+	      
 
-    public static void sort (ArrayList<Person> family, int nameIndex) { //recieves name from searchPrompt
-         Person found = family.get(nameIndex);
+    //receives name from searchPrompt
+    public static void sort (int nameIndex) 
+    { 
+         Person found = relations(family.get(nameIndex)); //Important
+         
          System.out.println("Maternal Line:");
          System.out.println("\t" + found.getName());
          int i = 1;
             
-               for (int j=0; j<=i; j++) {
+               for (int j=0; j<=i; j++) 
+               {
                   System.out.print("\t");
                
                System.out.println(found.getMother());
                found = found.getMother();
                i++;
-            }
+               }	
          
          // Reset our queryPerson (and our indentation loop counter)
          found = family.get(nameIndex);
@@ -70,24 +83,37 @@ public class GenealogySort{
          System.out.println("\t" + found.getName());
          i = 1;
            
-               for (int j=0; j<=i; j++) {
+               for (int j=0; j<=i; j++) 
+               {
                   System.out.print("\t");
                
                System.out.println(found.getFather());
                found = found.getFather();
                i++;
-            }
+               }
    }
 
-   
-   // search function to detemine if name exists in arraylist family. Returns -1 if not found
-   public static int find(ArrayList<Person> family, String name) {
-      for (int i=0; i<family.size(); i++) {
-         if (family.get(i).getName().equals(name)) {
+    
+    //Method that gets the relations of the father, mother and children of the person
+    public static Person relations(Person name)
+    {
+    	
+    }
+    
+    
+//Works
+   // search function to determine if name exists in arraylist family. Returns -1 if not found
+   public static int find(String name) 
+   {
+      for(int i=0; i<family.size(); i++) 
+      {
+         if (family.get(i).getName().equals(name)) 
+         {
             return i;
          }
       }
       return -1;
    }
+   
    
 }
