@@ -26,15 +26,6 @@ public class Person
 		
 	}
 	
-	//Contructor two that instantiates name, mother, father, and children
-	public Person(String name, Person mother, Person father, ArrayList<Person> children)
-	{
-		this.name = name;
-		this.mother = mother;
-		this.father = father;
-		this.children = children;
-	}
-	
 	
 //MUTATOR METHODS
 	
