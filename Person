@@ -1,13 +1,20 @@
+//Authors: Aayush Budhiraja, Lee Janzen, , Harold Pham, and Andy Zhong
+//CS 211
+//4/18/2020
+//Team Project #1
+
 import java.util.ArrayList;
 
 public class Person 
 {
+
 //FIELDS
 	
 	ArrayList<Person> children;
 	private String name;
 	private Person father;
 	private Person mother;
+	
 	
 //CONSTRUCTORS
 	
@@ -27,6 +34,7 @@ public class Person
 		this.father = father;
 		this.children = children;
 	}
+	
 	
 //MUTATOR METHODS
 	
@@ -49,6 +57,7 @@ public class Person
 	{
 		children.add(kid);
 	}
+	
 	
 //ACCESSOR METHODS
 	
@@ -74,7 +83,5 @@ public class Person
    public String getName() {
       return name;
    }
-   
-   
 
 }
