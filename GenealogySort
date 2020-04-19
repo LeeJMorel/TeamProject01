@@ -1,10 +1,19 @@
+//Authors: Aayush Budhiraja, Lee Janzen, , Harold Pham, and Andy Zhong
+//CS 211
+//4/18/2020
+//Team Project #1
+
 import java.util.*;
 import java.io.*;
 
 public class GenealogySort{
-	
+
+
+//Our ArrayList Field
    private static ArrayList<Person> family = new ArrayList<>();
 	
+	
+//Starting Method 
    public static void main(String[] args) throws FileNotFoundException
    {
       File names = new File("tudor.dat"); //declares file to search
@@ -15,8 +24,8 @@ public class GenealogySort{
    }
    
    
- //Works
-   public static void searchPrompt() throws FileNotFoundException //Searches for person name inside arraylist family
+ //Searches for person name inside arraylist family
+   public static void searchPrompt() throws FileNotFoundException 
    {
 	   
          Scanner userInput = new Scanner(System.in); //scans user input
@@ -43,16 +52,18 @@ public class GenealogySort{
    }
    
    
-//Works
-   public static void readFile (Scanner console)//this should read the file, and input data into an array list
+//this method should read the file, and input data into an array list
+   public static void readFile (Scanner console)
    {
 	   //while files has a line, read it and add to array.
 	   String name;
-	   while (console.hasNextLine()) {
+	   while (console.hasNextLine()) 
+	   {
 	      name = console.nextLine().toLowerCase();//makes all the names lower case to prevent case sensitivity
 	      
          //reads to the first END to collect all the names
-         if (name.equals("end")) {
+         if (name.equals("end")) 
+         {
             break;
          }
             
@@ -63,11 +74,13 @@ public class GenealogySort{
       
       //while continuing file has a line, read it and add lineage using mutators
 	   String child;
-	   while (console.hasNextLine()) {
+	   while (console.hasNextLine()) 
+	   {
 	      child = console.nextLine().toLowerCase();//makes all the names lower case to prevent case sensitivity
 	      
          //reads to the second END to collect all the names
-         if (child.equals("end")) {
+         if (child.equals("end")) 
+         {
             break;
          }
          
@@ -80,11 +93,13 @@ public class GenealogySort{
          int momFound = find(maternalName);
          int dadFound = find(paternalName);
          
-         
          //if the name is found in the family array, apply the mutator to account for lineage, else add a mom
-         if (momFound >= 0) {
+         if (momFound >= 0) 
+         {
             family.get(childFound).addMother(family.get(momFound));
-         } else {
+         } 
+         else 
+         {
             //repeat add person but with mother mutator applied
    	      Person maternalLine = new Person(maternalName);
    	      family.add(maternalLine);
@@ -92,9 +107,12 @@ public class GenealogySort{
          }
          
          //if the name is found in the family array, apply the mutator to account for lineage, else add a dad
-         if (dadFound >= 0) {
+         if (dadFound >= 0) 
+         {
             family.get(childFound).addFather(family.get(dadFound));
-         } else {         
+         } 
+         else 
+         {         
             //repeat add person but with father mutator applied
    	      Person paternalLine = new Person(paternalName);
    	      family.add(paternalLine);
@@ -105,7 +123,7 @@ public class GenealogySort{
 	}
 	      
 
-    //receives name from searchPrompt
+    //receives name from searchPrompt to find within the ArrayList index
     public static void sort (int nameIndex) 
     { 
          Person found = family.get(nameIndex); //Important
@@ -140,9 +158,7 @@ public class GenealogySort{
 
    }
 
-    
-    
-//Works
+
    // search function to determine if name exists in arraylist family. Returns -1 if not found
    public static int find(String name) 
    {
@@ -155,6 +171,5 @@ public class GenealogySort{
       }
       return -1;
    }
-   
    
 }
