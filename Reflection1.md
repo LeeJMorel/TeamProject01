@@ -7,21 +7,12 @@
 https://github.com/leejanzen91/TeamProject01
 
 
-//example:
-Our team began by finding repetition to our code. We broke down repeated phrases in the song, marking each with a number to
-indicate the phrase. There were 4 repeated static methods, which were delegated among members to be written. The team decided 
-these methods would be named after the number assigned to them (ie. One, two, three, four). While the methods were written the
-team lead wrote the main program, calling the static methods as appropriate. These methods were then posted to our team forum and 
-copy and pasted into the bottom of the code. Upon compiling here, our code ran. However, Cheyenne noticed there were some more 
-specific instructions, to call each verse as a method. The code was quickly edited to align with these standards by the team lead,
-while Ella created a Github for our group. We hadn’t liked the CANVAS system for sharing code and wanted to alter our future 
-processes for group collaboration. The final code was posted to the Team Project Github for editing and team contribution.
+Having used Github for previous group projects, Lee set up a similar github interface for our CS211 group right away. Andy created us a discord, which proved to be immensely valuable for continued group discussion outside of class. We used the discord to discuss our strategy, send references to java code material, and communicate throughout the project. After that was established, Harold worked on the person class, and Lee set about creating the main interface. Andy tried to help with sorting the name into Name>Mother>Father>Children but having not read the chapter struggled to create the class. Despite lots of editing, he was very involved in the codes creation and in offering some new perspectives. Aayush Budhiraja, our assigned group lead, was unfortunately unavailable for the duration of the project, although offered to help on the Github channel but was ultimately busy.
 	
 
 **Lee Janzen**
 
-//example:
-I was the team lead for our project, and quickly set to delegating tasks. We were done quickly, and I was happy with the progress. All the team members really helped to contribute, and communication went well. I had challenges finding things for our new group member to do, as she had just started. I wasn’t sure how far along she was in the course work, so I had her follow along with me as best I could while managing the project. Everyone did a great job of speaking up and adding their strengths to the group. Most importantly, I feel we are now better prepared for a larger and more complex project together, like we will see in the future with the course work. I heavily insisted on using Github for all group project related concerns, in part because I feel it’s important to understand the platform and to make contributions. We are all very new to the experience, and learning how to make contributions to Github effectively.
+I took a lot of my lessons with me from CS210 and set up the Github in a similar interface that worked for my first group projects. Andy struggled a bit, but thanks to the discord they created I felt we still had plenty of ability to create contribution despite inexperience with the GitHub interface. After this I went about creating the main code client. The first few iterations of the code were, frankly, terrible. It took a long time to get it up and running. Much of breaking down the project happened while I wrote the Main client. During our first meeting we knew it needed a person class, file reader, a user search prompt, and a method that would sort the family tree. It wasn’t until I wrote the main user prompt that I realized we needed a find method to determine if the name was even in the file. Harold helped a lot with cleaning it up to a functional point after they finished the Person.java class. Once we got it going it was a matter of sorting through all the data correctly. At this point things ran pretty smoothly, but I got stuck on returning children at the end. 
 
 **Andy Zhong**
 
