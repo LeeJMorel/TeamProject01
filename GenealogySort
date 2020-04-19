@@ -130,7 +130,13 @@ public class GenealogySort{
          
          //displays Children      
          System.out.println("Children:");
-         System.out.println("\t" +  found.getChildren());
+            if (found.getChildren().size() > 0) { //if children exist
+               for(int i=0; i<found.getChildren().size(); i++) {
+                  System.out.println("\t" +  found.getChildren().get(i).getName());
+               }
+            } else {
+               System.out.println("\t\t Had no heirs");
+            }
 
    }
 
