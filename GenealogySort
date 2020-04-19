@@ -19,9 +19,9 @@ public class GenealogySort{
    public static void searchPrompt() throws FileNotFoundException //Searches for person name inside arraylist family
    {
 	   
-         Scanner console = new Scanner(System.in); //scans user input
+         Scanner userInput = new Scanner(System.in); //scans user input
          System.out.println("Person's name? (quit to exit): "); //Prompts the user for name
-         String name = console.nextLine().toLowerCase(); //declares name, makes lower case for file search
+         String name = userInput.nextLine().toLowerCase(); //declares name, makes lower case for file search
         
          while (!name.equals("quit")) //if name is not "quit" run method
          { 
@@ -36,7 +36,7 @@ public class GenealogySort{
                System.out.println("Name not found. Try again!"); //else loop
             }
             System.out.println("Person's name? (quit to exit): "); //fencepost
-            name = console.nextLine();
+            name = userInput.nextLine();
          }
          System.out.println("Thank you for using our program!"); //exit
          
