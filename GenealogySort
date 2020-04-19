@@ -21,7 +21,7 @@ public class GenealogySort{
 	   
          Scanner console = new Scanner(System.in); //scans user input
          System.out.println("Person's name? (quit to exit): "); //Prompts the user for name
-         String name = console.nextLine(); //declares name, makes lower case for file search
+         String name = console.nextLine().toLowerCase(); //declares name, makes lower case for file search
          int nameIndex = find(name); //search the file for the name location
         
          while (!name.equals("quit")) //if name is not "quit" run method
@@ -49,20 +49,66 @@ public class GenealogySort{
 	   //while files has a line, read it and add to array.
 	   String name;
 	   while (console.hasNextLine()) {
-	      name = console.nextLine();
-	         
+	      name = console.nextLine().toLowerCase();//makes all the names lower case to prevent case sensitivity
+	      
+         //reads to the first END to collect all the names
+         if (name.equals("end")) {
+            break;
+         }
+            
 	      Person familyLine = new Person(name);
 	
 	      family.add(familyLine);
 	   }
-	    
+      
+      //while continuing file has a line, read it and add lineage using mutators
+	   String children;
+	   while (console.hasNextLine()) {
+	      children = console.nextLine().toLowerCase();//makes all the names lower case to prevent case sensitivity
+	      
+         //reads to the first END to collect all the names
+         if (children.equals("end")) {
+            break;
+         }
+         
+         //following lines MUST be mother and father
+         String maternalName = console.nextLine().toLowerCase();
+         String paternalName = console.nextLine().toLowerCase();
+         
+         //finds the location in the file
+         int childFound = find(children);
+         int momFound = find(maternalName);
+         int dadFound = find(paternalName);
+         
+         
+         //if the name is found in the family array, apply the mutator to account for lineage, else add a mom
+         if (momFound > 0) {
+            family.get(childFound).addMother(family.get(momFound));
+         }
+         
+         //repeat add person but with mother mutator applied
+	      Person maternalLine = new Person(maternalName);
+	      family.add(maternalLine);
+         family.get(childFound).addMother(maternalLine);
+         
+         //if the name is found in the family array, apply the mutator to account for lineage, else add a dad
+         if (dadFound > 0) {
+            family.get(childFound).addFather(family.get(dadFound));
+         }
+         
+         //repeat add person but with father mutator applied
+	      Person paternalLine = new Person(paternalName);
+	      family.add(paternalLine);
+         family.get(childFound).addFather(paternalLine);
+	   }
+
 	}
 	      
 
     //receives name from searchPrompt
     public static void sort (int nameIndex) 
     { 
-         Person found = relations(family.get(nameIndex)); //Important
+         Person found = family.get(nameIndex); //Important
          
          System.out.println("Maternal Line:");
          System.out.println("\t" + found.getName());
@@ -95,10 +141,10 @@ public class GenealogySort{
 
     
     //Method that gets the relations of the father, mother and children of the person
-    public static Person relations(Person name)
-    {
+    //public static Person relations(Person name)
+    //{
     	
-    }
+    //}
     
     
 //Works
