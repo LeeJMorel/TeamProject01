@@ -66,7 +66,7 @@ public class GenealogySort{
 	   while (console.hasNextLine()) {
 	      children = console.nextLine().toLowerCase();//makes all the names lower case to prevent case sensitivity
 	      
-         //reads to the first END to collect all the names
+         //reads to the second END to collect all the names
          if (children.equals("end")) {
             break;
          }
@@ -110,41 +110,23 @@ public class GenealogySort{
     { 
          Person found = family.get(nameIndex); //Important
          
+         //displays mother
          System.out.println("Maternal Line:");
          System.out.println("\t" + found.getName());
-         int i = 1;
-            
-               for (int j=0; j<=i; j++) 
-               {
-                  System.out.print("\t");
-               
-               System.out.println(found.getMother());
-               found = found.getMother();
-               i++;
-               }	
-         
-         // Reset our queryPerson (and our indentation loop counter)
-         found = family.get(nameIndex);
+         System.out.println("\t\t" +  found.getMother());
+
+         //Displays father
          System.out.println("Paternal Line:");
          System.out.println("\t" + found.getName());
-         i = 1;
-           
-               for (int j=0; j<=i; j++) 
-               {
-                  System.out.print("\t");
-               
-               System.out.println(found.getFather());
-               found = found.getFather();
-               i++;
-               }
+         System.out.println("\t\t" +  found.getFather());
+         
+         //displays Children      
+         System.out.println("Children:");
+         System.out.println("\t" + found.getName());
+         System.out.println("\t\t" +  found.getChildren());
+
    }
 
-    
-    //Method that gets the relations of the father, mother and children of the person
-    //public static Person relations(Person name)
-    //{
-    	
-    //}
     
     
 //Works
