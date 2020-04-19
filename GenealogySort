@@ -22,10 +22,10 @@ public class GenealogySort{
          Scanner console = new Scanner(System.in); //scans user input
          System.out.println("Person's name? (quit to exit): "); //Prompts the user for name
          String name = console.nextLine().toLowerCase(); //declares name, makes lower case for file search
-         int nameIndex = find(name); //search the file for the name location
         
          while (!name.equals("quit")) //if name is not "quit" run method
          { 
+            int nameIndex = find(name); //search the file for the name location
 
             if (nameIndex >= 0) //name was found
             { 
@@ -62,12 +62,12 @@ public class GenealogySort{
 	   }
       
       //while continuing file has a line, read it and add lineage using mutators
-	   String children;
+	   String child;
 	   while (console.hasNextLine()) {
-	      children = console.nextLine().toLowerCase();//makes all the names lower case to prevent case sensitivity
+	      child = console.nextLine().toLowerCase();//makes all the names lower case to prevent case sensitivity
 	      
          //reads to the second END to collect all the names
-         if (children.equals("end")) {
+         if (child.equals("end")) {
             break;
          }
          
@@ -76,30 +76,30 @@ public class GenealogySort{
          String paternalName = console.nextLine().toLowerCase();
          
          //finds the location in the file
-         int childFound = find(children);
+         int childFound = find(child);
          int momFound = find(maternalName);
          int dadFound = find(paternalName);
          
          
          //if the name is found in the family array, apply the mutator to account for lineage, else add a mom
-         if (momFound > 0) {
+         if (momFound >= 0) {
             family.get(childFound).addMother(family.get(momFound));
+         } else {
+            //repeat add person but with mother mutator applied
+   	      Person maternalLine = new Person(maternalName);
+   	      family.add(maternalLine);
+            family.get(childFound).addMother(maternalLine);
          }
-         
-         //repeat add person but with mother mutator applied
-	      Person maternalLine = new Person(maternalName);
-	      family.add(maternalLine);
-         family.get(childFound).addMother(maternalLine);
          
          //if the name is found in the family array, apply the mutator to account for lineage, else add a dad
-         if (dadFound > 0) {
+         if (dadFound >= 0) {
             family.get(childFound).addFather(family.get(dadFound));
+         } else {         
+            //repeat add person but with father mutator applied
+   	      Person paternalLine = new Person(paternalName);
+   	      family.add(paternalLine);
+            family.get(childFound).addFather(paternalLine);
          }
-         
-         //repeat add person but with father mutator applied
-	      Person paternalLine = new Person(paternalName);
-	      family.add(paternalLine);
-         family.get(childFound).addFather(paternalLine);
 	   }
 
 	}
@@ -113,17 +113,24 @@ public class GenealogySort{
          //displays mother
          System.out.println("Maternal Line:");
          System.out.println("\t" + found.getName());
-         System.out.println("\t\t" +  found.getMother());
+            if (found.getMother() != null){ //if mother exists
+               System.out.println("\t\t" +  found.getMother().getName());
+            } else {
+               System.out.println("\t\t Mother not found");
+            }
 
          //Displays father
          System.out.println("Paternal Line:");
          System.out.println("\t" + found.getName());
-         System.out.println("\t\t" +  found.getFather());
+            if (found.getFather() != null){ //if father exists
+               System.out.println("\t\t" +  found.getFather().getName());
+            } else {
+               System.out.println("\t\t Father not found");
+            }
          
          //displays Children      
          System.out.println("Children:");
-         System.out.println("\t" + found.getName());
-         System.out.println("\t\t" +  found.getChildren());
+         System.out.println("\t" +  found.getChildren());
 
    }
 
