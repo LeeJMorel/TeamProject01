@@ -1,4 +1,4 @@
-# Team 3, SPRING 2020, CS211
+# Team 1, SPRING 2020, CS211
 
 ### Project01
 In your textbook, Building Java Programs, 5th Edition, on page 720 of Chapter 10, please do Programming Project #3.
@@ -7,11 +7,6 @@ The format of the data input file for this project will be two lists: a list of 
 
 While it is not explicitly specified in the project specification found in the text, the user query component of this project must be able to support as many queries from a user as the user wishes; each opportunity must be prompted, with the prompt including the sentinel for input when the user is ready to quit.
 
-### Project02
-
-In your textbook, Building Java Programs, 5th Edition, on page 1027 (1026 eBook) of Chapter 16 please do Programming Project #3.
-
-The implimentation of several methods is (or can be) the same between our ArrayList and LinkedList. Write a common abstract superclass called AbstractList that impliments the common behavior and is extended by both ArrayList and LinkedList. Factor out the common code from the two list classes into this abstract superclass so that no code duplication occurs between the two. Use iterators whenever possible in the abstract code to ensure that the implimentation is efficient for both types of lists.
 
 #### Project Expectations
 
